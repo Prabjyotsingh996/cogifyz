@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Gallery & Slideshow</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: #A0C878;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .gallery img {
+      width: 400px;
+      height: 400px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.2);
+    }
+    .main-image {
+      width: 400px;
+      height: 400px;
+      margin: 20px auto;
+      display: block;
+      border: 2px solid #a02424;
+    }
+
+    .slideshow {
+      width: 400px;
+      height: 400px;
+      overflow: hidden;
+      margin: 20px auto;
+      position: relative;
+      border: 2px solid #000;
+    }
+    .slides {
+      display: flex;
+      width: 1200%; 
+      animation: slide 60s linear infinite;
+      height: 100%;
+    }
+    .slides img {
+      width: calc(100% / 12);
+      height: 100%;
+      object-fit: cover;
+    }
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+  <h2 style="color: #143D60;">TEAM INDIA</h2>
+  <img id="mainImg" class="main-image" src="https://images.indianexpress.com/2024/06/India-T20-WC-Win.jpg?w=414" alt="Team India">
+
+  <div class="gallery">
+    <img src="https://i2.wp.com/afistfulofsaltcom.files.wordpress.com/2022/09/india-new-jersey_1634114268092_1634114275156.jpg?strip=all" onclick="changeImage(this.src)" alt="Gallery Image 1">
+    <img src="https://img.jagranjosh.com/imported/images/E/Articles/list-indian-odi-captains.webp" onclick="changeImage(this.src)" alt="Gallery Image 2">
+    <img src="https://images.hindustantimes.com/rf/image_size_960x540/HT/p2/2017/11/03/Pictures/cricket-t20-ind-nzl_e77503d8-c06d-11e7-922e-12a52d781256.jpg" onclick="changeImage(this.src)" alt="Gallery Image 3">
+  </div>
+
+  <h2 style="color: #143D60;">Slideshow</h2>
+  <div class="slideshow">
+    <div class="slides">
+      <img src="https://parimatchnews.com/wp-content/uploads/2022/09/%D1%87%D1%8F-1.jpeg" alt="Slide 1">
+      <img src="https://static.toiimg.com/thumb/msid-96076750,width-1280,height-720,resizemode-4/96076750.jpg" alt="Slide 2">
+      <img src="https://publish.tribuneindia.com/wp-content/uploads/2024/07/2024_7%24arshdeep-singh-file-photo_largeimg_1451582973.webp" alt="Slide 3">
+      <img src="https://images.augustman.com/wp-content/uploads/sites/6/2024/03/01160543/413932655_3059583407508087_4629181667790147683_n.jpg" alt="Slide 4">
+      <img src="https://www.india.com/wp-content/uploads/2023/11/MixCollage-17-Nov-2023-06-27-PM-5746.jpg" alt="Slide 5">
+      <img src="https://static.india.com/wp-content/uploads/2023/07/Collage-Maker-23-Jul-2023-06-18-PM-5414.jpg" alt="Slide 6">
+      <img src="https://parimatchnews.com/wp-content/uploads/2022/09/%D1%87%D1%8F-1.jpeg" alt="Slide 1 Duplicate">
+      <img src="https://static.toiimg.com/thumb/msid-96076750,width-1280,height-720,resizemode-4/96076750.jpg" alt="Slide 2 Duplicate">
+      <img src="https://publish.tribuneindia.com/wp-content/uploads/2024/07/2024_7%24arshdeep-singh-file-photo_largeimg_1451582973.webp" alt="Slide 3 Duplicate">
+      <img src="https://images.augustman.com/wp-content/uploads/sites/6/2024/03/01160543/413932655_3059583407508087_4629181667790147683_n.jpg" alt="Slide 4 Duplicate">
+      <img src="https://www.india.com/wp-content/uploads/2023/11/MixCollage-17-Nov-2023-06-27-PM-5746.jpg" alt="Slide 5 Duplicate">
+      <img src="https://static.india.com/wp-content/uploads/2023/07/Collage-Maker-23-Jul-2023-06-18-PM-5414.jpg" alt="Slide 6 Duplicate">
+    </div>
+  </div>
+
+  <script>
+    function changeImage(src) {
+      document.getElementById('mainImg').src = src;
+    }
+  </script>
+</body>
+</html>

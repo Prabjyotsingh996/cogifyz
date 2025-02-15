@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apply Now - Cognifyz Technologies</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    
+    .background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      perspective: 1000px;
+      background-color: #5C7285;
+      z-index: -1;
+    }
+    
+    .cube {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      transform-style: preserve-3d;
+      transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg);
+      animation: spin 20s infinite linear;
+    }
+    .cube div {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    .cube .front  { transform: translateZ(100px); }
+    .cube .back   { transform: rotateY(180deg) translateZ(100px); }
+    .cube .right  { transform: rotateY(90deg) translateZ(100px); }
+    .cube .left   { transform: rotateY(-90deg) translateZ(100px); }
+    .cube .top    { transform: rotateX(90deg) translateZ(100px); }
+    .cube .bottom { transform: rotateX(-90deg) translateZ(100px); }
+    
+    @keyframes spin {
+      from { transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg); }
+      to   { transform: translate(-50%, -50%) rotateX(360deg) rotateY(360deg); }
+    }
+    
+    .content {
+      position: relative;
+      z-index: 1;
+      color: #fff;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header {
+      margin-bottom: 30px;
+    }
+    header img {
+      height: 80px;
+    }
+    header h1 {
+      margin: 10px 0 0;
+      font-size: 2em;
+    }
+    .apply-form {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      width: 320px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      text-align: left;
+    }
+    .apply-form label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    .apply-form input,
+    .apply-form textarea,
+    .apply-form button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .apply-form input,
+    .apply-form textarea {
+      background: #fff;
+    }
+    .apply-form button {
+      background: #e67e22;
+      color: #fff;
+      cursor: pointer;
+      transition: background0.3s ease;
+    }
+    .apply-form button:hover {
+      background: #cf711f;
+    }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="cube">
+      <div class="front"></div>
+      <div class="back"></div>
+      <div class="right"></div>
+      <div class="left"></div>
+      <div class="top"></div>
+      <div class="bottom"></div>
+    </div>
+  </div>
+  <div class="content">
+    <header>
+
+      <img src="https://cognifyz.com/wp-content/uploads/2023/11/cognifyz-1.png" alt="Cognifyz Technologies Logo">
+      <h1>Apply Now</h1>
+    </header>
+  
+    <div class="apply-form">
+      <form action="submit_application.php" method="POST" enctype="multipart/form-data">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Full Name" required>
+        
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+        
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required>
+        
+        <label for="semester">Semester</label>
+        <input type="text" id="semester" name="semester" placeholder="Your Current Semester" required>
+        
+        <label for="cv">Upload CV</label>
+        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+        
+        <label for="reference">Reference (if any)</label>
+        <textarea id="reference" name="reference" placeholder="Provide reference details (optional)" rows="3"></textarea>
+        
+        <button type="submit">Submit Application</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

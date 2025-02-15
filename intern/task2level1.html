@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Webpage with Advanced Calculator & Greeting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f0f0f0;
+      color: #333;
+      text-align: center;
+    }
+    nav {
+      background: #333;
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      height: max-content;
+    }
+    nav a {
+        color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+    }
+    nav a:hover {
+      color: #ff9800;
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    h1, h2 {
+      margin: 20px 0;
+    }
+    ul {
+      list-style-type: disc;
+      text-align: left;
+      margin: 20px auto;
+      max-width: 600px;
+      padding: 0 20px;
+    }
+    ul li {
+      margin: 10px 0;
+    }
+    
+    img {
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+    input,
+    button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      transition: border-color 0.3s ease;
+    }
+    input:focus,
+    button:focus {
+      outline: none;
+      border-color: #ff9800;
+    }
+    button {
+      background: #333;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #555;
+    }
+    .color-button {
+      background: blue;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, opacity 0.3s ease;
+      margin-top: 20px;
+    }
+    .color-button:hover {
+      opacity: 0.8;
+    }
+    .calc-inputs {
+      margin: 15px 0;
+    }
+    .calc-buttons button {
+      margin: 5px;
+    }
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+      ul {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </nav>
+    <div class="container">
+    <h1>Welcome to Cognifyz</h1>
+    <ul>
+      <li>Cognifyz Technologies is a leading technology company specializing in data science.</li>
+      <li>We excel in delivering impactful projects and innovative solutions.</li>
+      <li>Our training programs enhance skills and knowledge in cutting-edge technologies.</li>
+      <li>We focus on delivering customized solutions to meet diverse business needs.</li>
+    </ul>
+    <img src="https://cognifyz.com/wp-content/uploads/2023/11/cognifyz-1.png" alt="Cognifyz Logo" />
+        <form>
+      <input type="text" placeholder="Enter your name" required />
+      <button type="submit">Submit</button>
+    </form>
+        <button class="color-button" onclick="changeColor(this)">Click Me</button>
+        <h2>Calculator</h2>
+    <div class="calc-inputs">
+      <input type="number" id="num1" placeholder="Enter first number" />
+      <input type="number" id="num2" placeholder="Enter second number" />
+    </div>
+    <div class="calc-buttons">
+      <button onclick="calculate('add')">Add</button>
+      <button onclick="calculate('subtract')">Subtract</button>
+      <button onclick="calculate('multiply')">Multiply</button>
+      <button onclick="calculate('divide')">Divide</button>
+    </div>
+    <p id="result"></p>
+  </div>
+  
+  <script style="background-color: #333;">
+    function changeColor(button) {
+        button.style.backgroundColor = button.style.backgroundColor === 'blue' ? 'red' : 'blue';
+    }
+
+    function greetUser() {
+        let hours = new Date().getHours();
+        let greeting;
+        if (hours < 12) {
+            greeting = "Good Morning!";
+        } else if (hours < 18) {
+            greeting = "Good Afternoon!";
+        } else {
+            greeting = "Good Evening!";
+        }
+        alert(greeting);
+    }
+        function calculate(operation) {
+      const num1 = parseFloat(document.getElementById('num1').value) || 0;
+      const num2 = parseFloat(document.getElementById('num2').value) || 0;
+      let result;
+      
+      switch(operation) {
+        case 'add':
+          result = num1 + num2;
+          break;
+        case 'subtract':
+          result = num1 - num2;
+          break;
+        case 'multiply':
+          result = num1 * num2;
+          break;
+        case 'divide':
+          if (num2 === 0) {
+            result = "Error: Division by zero";
+          } else {
+            result = num1 / num2;
+          }
+          break;
+        default:
+          result = "Invalid Operation";
+      }
+      document.getElementById('result').innerText = 'Result: ' + result;
+    }
+        window.onload = greetUser;
+  </script>
+</body>
+</html>
